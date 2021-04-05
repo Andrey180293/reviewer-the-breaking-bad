@@ -68,7 +68,7 @@ const Characters_Card = ({ item }) => {
           </TableRow>
           <TableRow>
             {" "}
-            {item.occupation.length > 0 && (
+            {item.occupation && item.occupation.length > 0 && (
               <TableCell component="th" scope="row">
                 <h3>Occupation:</h3>
               </TableCell>

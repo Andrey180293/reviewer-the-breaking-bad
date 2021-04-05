@@ -43,15 +43,22 @@ const App = () => {
         <Grid
           item
           xs={12}
-          sm={3}
-          md={3}
+          sm={!open ? 0 : 3}
+          md={!open ? 0 : 3}
           lg={2}
           xl={2}
           className={!open && classes.hide}
         >
           <Sidebar_Container />
         </Grid>
-        <Grid item xs={12} sm={9} md={9} lg={10} xl={10}>
+        <Grid
+          item
+          xs={12}
+          sm={!open ? 12 : 9}
+          md={!open ? 12 : 9}
+          lg={!open ? 12 : 10}
+          xl={!open ? 12 : 10}
+        >
           <Content_Container />
         </Grid>
       </Grid>

@@ -1,0 +1,37 @@
+.fontResponsible {
+  font-size: 1.2em;
+}
+.charactersSmall {
+  display: none;
+}
+.charactersLargehead {
+  display: table-cell;
+  background-color: rgb(0, 0, 0);
+  color: #ffffff;
+  padding: 16px;
+  text-align: left;
+  vertical-align: inherit;
+  border-bottom: 3px solid rgb(5, 5, 5);
+}
+.charactersLarge {
+  display: block;
+}
+@media screen and(max-width: 1020px) {
+  .fontResponsible {
+    font-size: 1em;
+  }
+}
+
+@media screen and(max-width: 915px) {
+  .fontResponsible {
+    font-size: 0.8em;
+  }
+}
+@media screen and(max-width: 705px) {
+  .charactersSmall {
+    display: block;
+  }
+  .charactersLarge {
+    display: none;
+  }
+}

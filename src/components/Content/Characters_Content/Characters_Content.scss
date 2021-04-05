@@ -1,0 +1,27 @@
+.characterImg {
+  width: 70%;
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.characterModalImg {
+  width: 75%;
+  height: 100vh;
+}
+
+@media screen and(max-width: 780px) {
+  .characterImg {
+    width: 75%;
+    height: 100%;
+  }
+}
+
+@media screen and(max-width: 600px) {
+  .characterImg {
+    height: 40vh;
+  }
+  .characterModalImg {
+    width: 100%;
+  }
+}
