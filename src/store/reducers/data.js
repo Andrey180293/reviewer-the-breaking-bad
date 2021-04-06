@@ -2,7 +2,7 @@ import { SET_DATA, SET_LOAD } from "../action-creators/data";
 
 const initialization = {
   data: null,
-  isLoad: false,
+  isLoad: true,
 };
 
 const DataReducer = (state = initialization, action) => {

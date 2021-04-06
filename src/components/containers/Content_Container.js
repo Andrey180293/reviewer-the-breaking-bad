@@ -2,13 +2,12 @@ import React, { useEffect } from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { getData } from "../../store/action-creators/data";
-
 import Characters_Content from "../Content/Characters_Content/Characters_Content";
 import { Route } from "react-router";
 import Episodes_Content from "../Content/Episodes/Episodes_Content";
 import Quotes_Content from "../Content/Quotes/Quotes_Content";
-
-const Content_Container = ({ data, isLoad }) => {
+import Start_Page from "../Content/Start_Page";
+const Content_Container = ({ data, isLoad, getData }) => {
   const seasonsCount = (data, series) => {
     const seasonsArr =
       data && data.filter((f) => f.series != series).map((el) => +el.season);
@@ -16,16 +15,17 @@ const Content_Container = ({ data, isLoad }) => {
   };
 
   const quoteAutor = (data) => {
-    const res = data.map((el) => el.author);
+    const res = data && data.map((el) => el.author);
     return new Set(res);
   };
   const quoteCount = (data, str) => {
-    const res = data.map((el) => el.author);
+    const res = data && data.map((el) => el.author);
     return res.filter((el) => el == str).length;
   };
-  if (isLoad === false) return ".......";
+  if (isLoad === false) return ". .  .  .  .  .  .  ";
   return (
     <>
+      <Route exact path="/" render={() => <Start_Page getData={getData} />} />
       <Route
         path="/characters"
         render={() => <Characters_Content data={data} />}

@@ -18,7 +18,7 @@ const Sidebar = ({ getData }) => {
       <List>
         {sideMenu.map((item, index) => (
           <ListItem button key={index}>
-            <NavLink to={"/" + item.link}>
+            <NavLink to={"/" + item.link} style={{ textDecoration: "none" }}>
               <ListItemText
                 primary={item.name}
                 onClick={() => getData(item.link + "?limit=10")}

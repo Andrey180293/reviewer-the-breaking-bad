@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,10 +18,15 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  linkDekore: {
+    color: "white",
+    textDecorationLine: "none",
+  },
 }));
 
-const Header = ({ open, setOpen }) => {
+const Header = ({ open, setOpen, setLoad }) => {
   const classes = useStyles();
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -34,8 +40,10 @@ const Header = ({ open, setOpen }) => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            Film viewer
+          <Typography variant="h5" className={classes.title}>
+            <NavLink className={classes.linkDekore} to="/">
+              Film viewer
+            </NavLink>
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>

@@ -1,14 +1,12 @@
 import React, { useEffect } from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
-import { getData } from "../../store/action-creators/data";
+import { setLoad, getData } from "../../store/action-creators/data";
 
 import App from "../../App";
 
-const App_Container = ({ getData }) => {
-  useEffect(() => {
-    getData();
-  }, []);
-  return <App />;
+const App_Container = ({ setLoad, getData }) => {
+  return <App setLoad={setLoad} getData={getData} />;
 };
-export default compose(connect(null, { getData }))(App_Container);
+
+export default compose(connect(null, { setLoad, getData }))(App_Container);

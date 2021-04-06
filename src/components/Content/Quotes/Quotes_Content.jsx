@@ -13,13 +13,13 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
   },
+  decoration: { textDecoration: "none" },
 }));
 
 const Quotes_Content = ({ data, quoteAutor, quoteCount }) => {
   const classes = useStyles();
   const [openList, setOpenList] = useState(false);
   const [quotesAuthorList, setQuotesAuthorList] = useState(null);
-  console.log(quoteAutor(data));
 
   const setQutesList = (item) => {
     setQuotesAuthorList(item);
@@ -33,7 +33,7 @@ const Quotes_Content = ({ data, quoteAutor, quoteCount }) => {
           {[...quoteAutor(data)].map((el) => {
             return (
               <Grid item xs={3}>
-                <NavLink to={`/quotes/${el}`}>
+                <NavLink to={`/quotes/${el}`} className={classes.decoration}>
                   <Paper
                     className={classes.paper}
                     onClick={() => {

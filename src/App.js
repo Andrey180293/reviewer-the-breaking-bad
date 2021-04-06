@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     display: "none",
   },
 }));
-const App = () => {
+const App = ({ setLoad, getData }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   // const [state, setState] = useState(null);
@@ -38,7 +38,7 @@ const App = () => {
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Header setOpen={setOpen} open={open} />
+          <Header setOpen={setOpen} open={open} setLoad={setLoad} />
         </Grid>
         <Grid
           item
