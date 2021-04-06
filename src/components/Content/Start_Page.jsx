@@ -32,18 +32,17 @@ const Start_Page = ({ getData }) => {
   ];
   return (
     <div>
-      <Grid container spacing={3}>
+      <Grid
+        container
+        spacing={5}
+        style={{
+          cursor: "pointer",
+          padding: "0 50px",
+        }}
+      >
         {menu.map((el) => {
           return (
-            <Grid
-              item
-              xs={5}
-              primary
-              key={el.name}
-              style={{
-                cursor: "pointer",
-              }}
-            >
+            <Grid item xs={6} primary key={el.name}>
               <NavLink to={`/${el.link}`} className={classes.decoration}>
                 <Paper
                   className={classes.paper}

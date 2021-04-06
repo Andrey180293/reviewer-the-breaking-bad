@@ -7,22 +7,34 @@ import { Route } from "react-router";
 import Episodes_Content from "../Content/Episodes/Episodes_Content";
 import Quotes_Content from "../Content/Quotes/Quotes_Content";
 import Start_Page from "../Content/Start_Page";
+import LinearProgress from "@material-ui/core/LinearProgress";
+import Deathes_Content from "../Content/Deathes/Deathes_Content";
 const Content_Container = ({ data, isLoad, getData }) => {
   const seasonsCount = (data, series) => {
-    const seasonsArr =
-      data && data.filter((f) => f.series != series).map((el) => +el.season);
+    const seasonsArr = data
+      .filter((f) => f.series != series)
+      .map((el) => +el.season);
     return new Set(seasonsArr);
   };
 
   const quoteAutor = (data) => {
-    const res = data && data.map((el) => el.author);
-    return new Set(res);
+    return new Set(data && data.map((el) => el.author));
   };
   const quoteCount = (data, str) => {
-    const res = data && data.map((el) => el.author);
-    return res.filter((el) => el == str).length;
+    return data.filter((el) => el.author == str).length;
   };
-  if (isLoad === false) return ". .  .  .  .  .  .  ";
+
+  //----------------------------------------------------------------------------------------
+  const seasonsDeathsCount = (data) => {
+    return new Set(data.map((el) => +el.season));
+  };
+
+  const deathsPeopleCount = (data, season) => {
+    return data.filter((el) => el.season === season).length;
+  };
+  //----------------------------------------------------------------------------------------
+
+  if (isLoad === false) return <LinearProgress style={{ marginTop: "30vh" }} />;
   return (
     <>
       <Route exact path="/" render={() => <Start_Page getData={getData} />} />
@@ -43,6 +55,16 @@ const Content_Container = ({ data, isLoad, getData }) => {
             data={data}
             quoteAutor={quoteAutor}
             quoteCount={quoteCount}
+          />
+        )}
+      />
+      <Route
+        path="/deaths"
+        render={() => (
+          <Deathes_Content
+            data={data}
+            seasonsDeathsCount={seasonsDeathsCount}
+            deathsPeopleCount={deathsPeopleCount}
           />
         )}
       />

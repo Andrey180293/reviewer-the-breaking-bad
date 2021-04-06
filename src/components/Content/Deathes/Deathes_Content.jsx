@@ -3,8 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import { Paper } from "@material-ui/core";
 import Badge from "@material-ui/core/Badge";
-import Quotes_List from "./Quotes_List";
 import { NavLink } from "react-router-dom";
+import Deathes_List from "./Deathes_List";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,32 +16,36 @@ const useStyles = makeStyles((theme) => ({
   decoration: { textDecoration: "none" },
 }));
 
-const Quotes_Content = ({ data, quoteAutor, quoteCount }) => {
+const Deathes_Content = ({ data, seasonsDeathsCount, deathsPeopleCount }) => {
   const classes = useStyles();
   const [openList, setOpenList] = useState(false);
-  const [quotesAuthorList, setQuotesAuthorList] = useState(null);
+  const [seasonNumber, setSeasonNumber] = useState(null);
 
-  const setQuotesList = (item) => {
-    setQuotesAuthorList(item);
+  const setDeathesList = (item) => {
+    setSeasonNumber(item);
     setOpenList(true);
   };
 
+  console.log(seasonsDeathsCount(data));
   return (
     <>
       {!openList ? (
         <Grid container spacing={3}>
-          {[...quoteAutor(data)].map((el) => {
+          {[...seasonsDeathsCount(data)].sort().map((el) => {
             return (
-              <Grid item xs={3}>
-                <NavLink to={`/quotes/${el}`} className={classes.decoration}>
+              <Grid item xs={3} key={el}>
+                <NavLink
+                  to={`/deaths/season/${el}`}
+                  className={classes.decoration}
+                >
                   <Paper
                     className={classes.paper}
                     onClick={() => {
-                      setQuotesList(el);
+                      setDeathesList(el);
                     }}
                   >
                     <Badge
-                      badgeContent={quoteCount(data, el)}
+                      badgeContent={deathsPeopleCount(data, el)}
                       color="primary"
                       overlap="rectangle"
                       anchorOrigin={{
@@ -49,7 +53,7 @@ const Quotes_Content = ({ data, quoteAutor, quoteCount }) => {
                         horizontal: "left",
                       }}
                     >
-                      <div style={{ margin: "5px" }}>{el}</div>
+                      <div style={{ margin: "5px" }}>season {el}</div>
                     </Badge>
                   </Paper>
                 </NavLink>
@@ -58,9 +62,9 @@ const Quotes_Content = ({ data, quoteAutor, quoteCount }) => {
           })}
         </Grid>
       ) : (
-        <Quotes_List data={data} quotesAuthorList={quotesAuthorList} />
+        <Deathes_List data={data} seasonNumber={seasonNumber} />
       )}
     </>
   );
 };
-export default Quotes_Content;
+export default Deathes_Content;

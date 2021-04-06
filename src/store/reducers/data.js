@@ -1,8 +1,15 @@
-import { SET_DATA, SET_LOAD } from "../action-creators/data";
+import {
+  SET_DATA,
+  SET_LOAD,
+  SET_IMG,
+  SET_QUOTE,
+} from "../action-creators/data";
 
 const initialization = {
   data: null,
   isLoad: true,
+  image: null,
+  quote: null,
 };
 
 const DataReducer = (state = initialization, action) => {
@@ -16,6 +23,16 @@ const DataReducer = (state = initialization, action) => {
       return {
         ...state,
         isLoad: action.payload,
+      };
+    case SET_IMG:
+      return {
+        ...state,
+        image: action.payload,
+      };
+    case SET_QUOTE:
+      return {
+        ...state,
+        quote: action.payload,
       };
 
     default:
