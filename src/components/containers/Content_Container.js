@@ -11,9 +11,8 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 import Deathes_Content from "../Content/Deathes/Deathes_Content";
 const Content_Container = ({ data, isLoad, getData }) => {
   const seasonsCount = (data, series) => {
-    const seasonsArr = data
-      .filter((f) => f.series != series)
-      .map((el) => +el.season);
+    const seasonsArr =
+      data && data.filter((f) => f.series != series).map((el) => +el.season);
     return new Set(seasonsArr);
   };
 
@@ -26,7 +25,7 @@ const Content_Container = ({ data, isLoad, getData }) => {
 
   //----------------------------------------------------------------------------------------
   const seasonsDeathsCount = (data) => {
-    return new Set(data.map((el) => +el.season));
+    return new Set(data && data.map((el) => +el.season));
   };
 
   const deathsPeopleCount = (data, season) => {

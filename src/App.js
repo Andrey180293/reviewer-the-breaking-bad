@@ -10,6 +10,7 @@ import Content_Container from "./components/containers/Content_Container";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    marginTop: "50px",
   },
   paper: {
     padding: theme.spacing(2),
@@ -23,16 +24,6 @@ const useStyles = makeStyles((theme) => ({
 const App = ({ setLoad, getData }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
-  // const [state, setState] = useState(null);
-
-  /*useEffect(() => {
-    fetch("https://www.breakingbadapi.com/api/deaths")
-      .then((response) => response.json())
-      .then((data) => setState(data))
-      .catch((error) => console.error(error));
-  }, []);
-  console.log(state);
-  */
 
   return (
     <div className={classes.root}>
@@ -40,24 +31,16 @@ const App = ({ setLoad, getData }) => {
         <Grid item xs={12}>
           <Header setOpen={setOpen} open={open} setLoad={setLoad} />
         </Grid>
-        <Grid
-          item
-          xs={12}
-          sm={!open ? 0 : 3}
-          md={!open ? 0 : 3}
-          lg={2}
-          xl={2}
-          className={!open && classes.hide}
-        >
+        <Grid item className={!open && classes.hide}>
           <Sidebar_Container />
         </Grid>
         <Grid
           item
           xs={12}
-          sm={!open ? 12 : 9}
-          md={!open ? 12 : 9}
-          lg={!open ? 12 : 10}
-          xl={!open ? 12 : 10}
+          style={{
+            padding: "20px  ",
+            marginTop: open && "-24px",
+          }}
         >
           <Content_Container />
         </Grid>

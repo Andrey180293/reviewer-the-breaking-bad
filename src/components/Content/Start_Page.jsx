@@ -12,10 +12,10 @@ const useStyles = makeStyles((theme) => ({
 
     textAlign: "center",
     color: "white",
-    height: "10vh",
+    height: "25vh",
     backgroundColor: theme.palette.primary.main,
     fontSize: "1.5em",
-    lineHeight: "9vh",
+    lineHeight: "25vh",
   },
   decoration: {
     textDecoration: "none",
@@ -42,7 +42,7 @@ const Start_Page = ({ getData }) => {
       >
         {menu.map((el) => {
           return (
-            <Grid item xs={6} primary key={el.name}>
+            <Grid item xs={12} sm={6} primary key={el.name}>
               <NavLink to={`/${el.link}`} className={classes.decoration}>
                 <Paper
                   className={classes.paper}

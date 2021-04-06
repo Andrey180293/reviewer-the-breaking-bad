@@ -7,10 +7,15 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { NavLink } from "react-router-dom";
+import CloseIcon from "@material-ui/icons/Close";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    position: "fixed",
+    top: 0,
+    width: "100%",
+    zIndex: 1000,
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -31,15 +36,28 @@ const Header = ({ open, setOpen, setLoad }) => {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            onClick={() => setOpen(!open)}
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
+          {!open ? (
+            <IconButton
+              onClick={() => setOpen(!open)}
+              edge="start"
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="menu"
+            >
+              {" "}
+              <MenuIcon />
+            </IconButton>
+          ) : (
+            <IconButton
+              className={classes.menuButton}
+              edge="start"
+              onClick={() => setOpen(!open)}
+            >
+              {" "}
+              <CloseIcon />
+            </IconButton>
+          )}
+
           <Typography variant="h5" className={classes.title}>
             <NavLink className={classes.linkDekore} to="/">
               Film viewer

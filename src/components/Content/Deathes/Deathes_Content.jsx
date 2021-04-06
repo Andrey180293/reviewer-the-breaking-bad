@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
+    backgroundColor: "#4caf50",
   },
   decoration: { textDecoration: "none" },
 }));

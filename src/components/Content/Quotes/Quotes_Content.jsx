@@ -35,6 +35,7 @@ const Quotes_Content = ({ data, quoteAutor, quoteCount }) => {
               <Grid item xs={3}>
                 <NavLink to={`/quotes/${el}`} className={classes.decoration}>
                   <Paper
+                    style={{ backgroundColor: "#4caf50" }}
                     className={classes.paper}
                     onClick={() => {
                       setQuotesList(el);

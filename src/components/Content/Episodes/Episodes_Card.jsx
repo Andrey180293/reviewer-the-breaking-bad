@@ -24,11 +24,11 @@ const useStyles = makeStyles({
   },
 });
 
-const Episodes_Card = ({ el }) => {
+const Episodes_Card = ({ el, color }) => {
   const classes = useStyles();
 
   return (
-    <Card>
+    <Card style={{ backgroundColor: color }}>
       <CardContent>
         <Typography
           className={classes.title}
