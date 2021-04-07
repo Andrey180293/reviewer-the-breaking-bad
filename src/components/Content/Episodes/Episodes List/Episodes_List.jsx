@@ -1,23 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import "./Episodess_Content.scss";
 import { Grid } from "@material-ui/core";
 import Episodes_List_Characters_Card from "./Episodes_List_Characters_Card";
 import Episodes_List_Card from "./Episodes_List_Card";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  },
-  grid: {
-    marginTop: "2vh",
-  },
-}));
 
 const Episodes_List = ({ listNumber, data, series }) => {
   const MapArr = data
@@ -27,9 +13,10 @@ const Episodes_List = ({ listNumber, data, series }) => {
 
   return (
     <Grid container spacing={3} style={{ padding: "0  80px 0 0" }}>
-      {MapArr.map((row) => {
+      {MapArr.map((row, i) => {
         return (
           <Grid
+            key={i + "w"}
             container
             direction="row"
             justify="space-between"

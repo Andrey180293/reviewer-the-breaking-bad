@@ -1,15 +1,11 @@
-import {
-  SET_DATA,
-  SET_LOAD,
-  SET_IMG,
-  SET_QUOTE,
-} from "../action-creators/data";
+import { SET_DATA, SET_LOAD, SET_CURRENT_PAGE } from "../action-creators/data";
 
 const initialization = {
   data: null,
   isLoad: true,
-  image: null,
-  quote: null,
+  totalCount: 62,
+  currentPage: 1,
+  perPage: 10,
 };
 
 const DataReducer = (state = initialization, action) => {
@@ -24,15 +20,10 @@ const DataReducer = (state = initialization, action) => {
         ...state,
         isLoad: action.payload,
       };
-    case SET_IMG:
+    case SET_CURRENT_PAGE:
       return {
         ...state,
-        image: action.payload,
-      };
-    case SET_QUOTE:
-      return {
-        ...state,
-        quote: action.payload,
+        currentPage: +action.payload,
       };
 
     default:

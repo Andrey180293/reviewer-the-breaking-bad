@@ -27,14 +27,13 @@ const Deathes_Content = ({ data, seasonsDeathsCount, deathsPeopleCount }) => {
     setOpenList(true);
   };
 
-  console.log(seasonsDeathsCount(data));
   return (
     <>
       {!openList ? (
         <Grid container spacing={3}>
-          {[...seasonsDeathsCount(data)].sort().map((el) => {
+          {[...seasonsDeathsCount(data)].sort().map((el, i) => {
             return (
-              <Grid item xs={3} key={el}>
+              <Grid item xs={3} key={el + "deaths"}>
                 <NavLink
                   to={`/deaths/season/${el}`}
                   className={classes.decoration}

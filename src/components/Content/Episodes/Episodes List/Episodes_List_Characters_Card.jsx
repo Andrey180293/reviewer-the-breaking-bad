@@ -31,9 +31,10 @@ const Episodes_List_Characters_Card = ({ charactersArr }) => {
         <Typography variant="h6" component="h5">
           Characters
         </Typography>
-        {charactersArr.map((charactersItem) => {
+        {charactersArr.map((charactersItem, i) => {
           return (
             <Typography
+              key={charactersItem + i}
               className={classes.title}
               color="textSecondary"
               gutterBottom

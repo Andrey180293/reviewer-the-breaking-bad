@@ -9,7 +9,7 @@ const Quotes_List = ({ data, quotesAuthorList }) => {
         .filter((f) => f.author == quotesAuthorList)
         .map((el) => {
           return (
-            <Grid item xs={12}>
+            <Grid item xs={12} key={el.quote + "quote" + 2}>
               <Paper>{el.quote}</Paper>
             </Grid>
           );

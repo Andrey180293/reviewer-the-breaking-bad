@@ -1,11 +1,25 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
-import { getData } from "../../store/action-creators/data";
+import { getData, setCurrentPage } from "../../store/action-creators/data";
 
 import Sidebar from "../Sidebar/Sidebar";
 
-const Sidebar_Container = ({ getData }) => {
-  return <Sidebar getData={getData} />;
+const Sidebar_Container = ({ getData, setCurrentPage, perPage }) => {
+  const sidebarHandleChange = (el) => {
+    setCurrentPage(1);
+    getData(`${el.link}?limit=${perPage}&offset=0`);
+  };
+
+  return <Sidebar sidebarHandleChange={sidebarHandleChange} />;
 };
-export default compose(connect(null, { getData }))(Sidebar_Container);
+
+const mapStateToProps = (state) => {
+  return {
+    perPage: state.data.perPage,
+  };
+};
+
+export default compose(connect(mapStateToProps, { getData, setCurrentPage }))(
+  Sidebar_Container
+);

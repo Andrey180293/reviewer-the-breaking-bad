@@ -43,7 +43,6 @@ const Header = ({ isOpenBurger, setOpenBurger }) => {
               color="inherit"
               aria-label="menu"
             >
-              {" "}
               <MenuIcon />
             </IconButton>
           ) : (

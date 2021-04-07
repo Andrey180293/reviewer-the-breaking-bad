@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-
 import Episodes_Card from "./Episodes_Card";
-import Episodes_List from "./Episodes_List";
+import Episodes_List from "./Episodes List/Episodes_List";
 
 const Episodes_Content = ({ data, seasonsCount }) => {
-  console.log(seasonsCount(data));
   const [openList, setOpenList] = useState(false);
   const [listNumber, setListNumber] = useState(null);
   const [series, setSeries] = useState(null);
@@ -33,9 +30,10 @@ const Episodes_Content = ({ data, seasonsCount }) => {
           </Grid>
 
           <Grid container spacing={3} item xs={6} style={{ height: "100%" }}>
-            {[...seasonsCount(data, "Breaking Bad")].map((el) => {
+            {[...seasonsCount(data, "Breaking Bad")].map((el, i) => {
               return (
                 <Grid
+                  key={i + "z"}
                   item
                   xs={12}
                   sm={6}
@@ -49,9 +47,10 @@ const Episodes_Content = ({ data, seasonsCount }) => {
           </Grid>
 
           <Grid container item xs={6} spacing={3} style={{ height: "100%" }}>
-            {[...seasonsCount(data, "Better Call Saul")].map((el) => {
+            {[...seasonsCount(data, "Better Call Saul")].map((el, i) => {
               return (
                 <Grid
+                  key={i + "a"}
                   item
                   xs={12}
                   sm={6}

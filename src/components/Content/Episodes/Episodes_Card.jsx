@@ -26,7 +26,6 @@ const useStyles = makeStyles({
 
 const Episodes_Card = ({ el, color }) => {
   const classes = useStyles();
-  console.log(el);
   return (
     <Card style={{ backgroundColor: color }}>
       <CardContent>

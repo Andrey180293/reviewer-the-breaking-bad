@@ -23,7 +23,7 @@ const Deathes_List = ({ data, seasonNumber }) => {
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} size="small" aria-label="a dense table">
-        <TableHead className={classes.head} justifyContent="flex-end">
+        <TableHead className={classes.head}>
           <TableRow>
             <TableCell>Episode</TableCell>
             <TableCell align="left">Death</TableCell>
@@ -37,7 +37,7 @@ const Deathes_List = ({ data, seasonNumber }) => {
             .filter((f) => f.season == seasonNumber)
             .sort((a, b) => a.episode - b.episode)
             .map((row, i) => (
-              <TableRow key={i}>
+              <TableRow key={row.episode + i + "episode"}>
                 <TableCell component="th" scope="row">
                   {row.episode}
                 </TableCell>

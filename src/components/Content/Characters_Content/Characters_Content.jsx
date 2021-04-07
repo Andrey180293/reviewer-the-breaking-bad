@@ -5,8 +5,14 @@ import Grid from "@material-ui/core/Grid";
 import Characters_Modal from "./Characters_Modal";
 import { NavLink } from "react-router-dom";
 import "./Characters_Content.scss";
+import Paginator from "../../../common/Paginator";
 
-const Characters_Content = ({ data }) => {
+const Characters_Content = ({
+  data,
+  pagesCount,
+  setCurrentPage,
+  currentPage,
+}) => {
   const [isOpenModal, setOpenModal] = React.useState(false);
   const [modalPage, setModalPage] = React.useState(null);
 
@@ -21,9 +27,9 @@ const Characters_Content = ({ data }) => {
       {!isOpenModal ? (
         <>
           {data &&
-            data.map((item) => {
+            data.map((item, i) => {
               return (
-                <Grid container spacing={3}>
+                <Grid container spacing={3} key={item.char_id + "char_id"}>
                   <Grid
                     item
                     xs={12}
@@ -51,6 +57,11 @@ const Characters_Content = ({ data }) => {
                 </Grid>
               );
             })}
+          <Paginator
+            pagesCount={pagesCount}
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
+          />
         </>
       ) : (
         <Characters_Modal

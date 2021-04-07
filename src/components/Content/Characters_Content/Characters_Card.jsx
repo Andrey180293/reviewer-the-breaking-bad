@@ -20,7 +20,6 @@ const Characters_Card = ({ item }) => {
       <Table className={classes.table} aria-label="custom pagination table">
         <TableBody>
           <TableRow>
-            {" "}
             <TableCell component="th" scope="row">
               Name:
               <span style={{ marginLeft: "15px", fontWeight: "bold" }}>
@@ -36,7 +35,6 @@ const Characters_Card = ({ item }) => {
           </TableRow>
 
           <TableRow>
-            {" "}
             <TableCell component="th" scope="row">
               Birthday:
               <span style={{ marginLeft: "15px", fontWeight: "bold" }}>
@@ -52,7 +50,6 @@ const Characters_Card = ({ item }) => {
           </TableRow>
 
           <TableRow>
-            {" "}
             <TableCell component="th" scope="row">
               Status:
               <span style={{ marginLeft: "15px", fontWeight: "bold" }}>
@@ -67,7 +64,6 @@ const Characters_Card = ({ item }) => {
             </TableCell>
           </TableRow>
           <TableRow>
-            {" "}
             {item.occupation && item.occupation.length > 0 && (
               <TableCell component="th" scope="row">
                 <h3>Occupation:</h3>
@@ -76,7 +72,7 @@ const Characters_Card = ({ item }) => {
             {item.occupation &&
               item.occupation.map((el) => {
                 return (
-                  <TableRow>
+                  <TableRow key={el + "table"}>
                     <TableCell component="th" scope="row">
                       {el}
                     </TableCell>

@@ -32,7 +32,7 @@ const Quotes_Content = ({ data, quoteAutor, quoteCount }) => {
         <Grid container spacing={3}>
           {[...quoteAutor(data)].map((el) => {
             return (
-              <Grid item xs={3}>
+              <Grid item xs={3} key={"quotes" + el}>
                 <NavLink to={`/quotes/${el}`} className={classes.decoration}>
                   <Paper
                     style={{ backgroundColor: "#4caf50" }}

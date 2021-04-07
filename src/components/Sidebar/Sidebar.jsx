@@ -6,7 +6,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import { NavLink } from "react-router-dom";
 import { Grid } from "@material-ui/core";
 
-const Sidebar = ({ getData }) => {
+const Sidebar = ({ sidebarHandleChange }) => {
   const sideMenu = [
     { name: "Персонажі", link: "characters" },
     { name: "Епізоди", link: "episodes" },
@@ -41,6 +41,7 @@ const Sidebar = ({ getData }) => {
       >
         {sideMenu.map((item, index) => (
           <NavLink
+            key={item.link + index + "index"}
             to={"/" + item.link}
             style={{
               textDecoration: "none",
@@ -50,7 +51,7 @@ const Sidebar = ({ getData }) => {
           >
             <ListItem
               button
-              key={index}
+              key={index + item.link}
               onClick={() => setActiveLink(index)}
               onMouseEnter={() => setActiveHoverLink(index)}
               onMouseLeave={() => setActiveHoverLink(null)}
@@ -65,7 +66,7 @@ const Sidebar = ({ getData }) => {
                   color: "white",
                 }}
                 primary={item.name}
-                onClick={() => getData(item.link + "?limit=10")}
+                onClick={() => sidebarHandleChange(item)}
               />
             </ListItem>
           </NavLink>

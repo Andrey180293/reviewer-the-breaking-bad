@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import { NavLink } from "react-router-dom";
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Start_Page = ({ getData }) => {
+const Start_Page = ({ getData, perPage, setCurrentPage }) => {
   const classes = useStyles();
   const menu = [
     { name: "Characters", link: "characters" },
@@ -31,31 +31,32 @@ const Start_Page = ({ getData }) => {
     { name: "Death", link: "deaths" },
   ];
   return (
-    <div>
-      <Grid
-        container
-        spacing={5}
-        style={{
-          cursor: "pointer",
-          padding: "0 50px",
-        }}
-      >
-        {menu.map((el) => {
-          return (
-            <Grid item xs={12} sm={6} primary key={el.name}>
-              <NavLink to={`/${el.link}`} className={classes.decoration}>
-                <Paper
-                  className={classes.paper}
-                  onClick={() => getData(el.link)}
-                >
-                  {el.name}
-                </Paper>
-              </NavLink>
-            </Grid>
-          );
-        })}
-      </Grid>
-    </div>
+    <Grid
+      container
+      spacing={5}
+      style={{
+        cursor: "pointer",
+        padding: "0 50px",
+      }}
+    >
+      {menu.map((el, i) => {
+        return (
+          <Grid item xs={12} sm={6} key={el.link + "link"}>
+            <NavLink to={`/${el.link}`} className={classes.decoration}>
+              <Paper
+                className={classes.paper}
+                onClick={() => {
+                  setCurrentPage(1);
+                  getData(`${el.link}?limit=${perPage}&offset=0`);
+                }}
+              >
+                {el.name}
+              </Paper>
+            </NavLink>
+          </Grid>
+        );
+      })}
+    </Grid>
   );
 };
 export default Start_Page;

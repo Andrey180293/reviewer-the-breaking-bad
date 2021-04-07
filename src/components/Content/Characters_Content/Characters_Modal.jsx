@@ -22,7 +22,6 @@ const Characters_Modal = ({ isOpenModal, setOpenModal, modalPage }) => {
         className={classes.modal}
         open={isOpenModal}
         onClose={() => setOpenModal(!isOpenModal)}
-        closeAfterTransition
         style={{
           display: "flex",
           flexDirection: "column",
