@@ -1,16 +1,14 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import Sidebar from "./components/Sidebar/Sidebar";
 import Header from "./components/Header/Header";
-import clsx from "clsx";
 import Sidebar_Container from "./components/containers/Sidebar_Container";
 import Content_Container from "./components/containers/Content_Container";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     marginTop: "50px",
+    overflow: "hidden",
   },
   paper: {
     padding: theme.spacing(2),
@@ -21,17 +19,17 @@ const useStyles = makeStyles((theme) => ({
     display: "none",
   },
 }));
-const App = ({ setLoad, getData }) => {
+const App = () => {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
+  const [isOpenBurger, setOpenBurger] = React.useState(false);
 
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Header setOpen={setOpen} open={open} setLoad={setLoad} />
+          <Header setOpenBurger={setOpenBurger} isOpenBurger={isOpenBurger} />
         </Grid>
-        <Grid item className={!open && classes.hide}>
+        <Grid item className={!isOpenBurger && classes.hide}>
           <Sidebar_Container />
         </Grid>
         <Grid
@@ -39,7 +37,7 @@ const App = ({ setLoad, getData }) => {
           xs={12}
           style={{
             padding: "20px  ",
-            marginTop: open && "-24px",
+            marginTop: isOpenBurger && "-24px",
           }}
         >
           <Content_Container />

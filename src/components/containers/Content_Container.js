@@ -9,13 +9,16 @@ import Quotes_Content from "../Content/Quotes/Quotes_Content";
 import Start_Page from "../Content/Start_Page";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import Deathes_Content from "../Content/Deathes/Deathes_Content";
+
 const Content_Container = ({ data, isLoad, getData }) => {
+  //------------------------Episodes--Functions-----------------------------------------
+
   const seasonsCount = (data, series) => {
     const seasonsArr =
-      data && data.filter((f) => f.series != series).map((el) => +el.season);
+      data && data.filter((f) => f.series === series).map((el) => +el.season);
     return new Set(seasonsArr);
   };
-
+  //------------------------Quotes--Functions-----------------------------------------
   const quoteAutor = (data) => {
     return new Set(data && data.map((el) => el.author));
   };
@@ -23,7 +26,7 @@ const Content_Container = ({ data, isLoad, getData }) => {
     return data.filter((el) => el.author == str).length;
   };
 
-  //----------------------------------------------------------------------------------------
+  //-------------------Deaths---Functions------------------------------------------------------------------
   const seasonsDeathsCount = (data) => {
     return new Set(data && data.map((el) => +el.season));
   };

@@ -5,6 +5,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import { NavLink } from "react-router-dom";
 import { Grid } from "@material-ui/core";
+
 const Sidebar = ({ getData }) => {
   const sideMenu = [
     { name: "Персонажі", link: "characters" },

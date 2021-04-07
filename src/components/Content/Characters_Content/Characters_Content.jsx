@@ -5,15 +5,8 @@ import Grid from "@material-ui/core/Grid";
 import Characters_Modal from "./Characters_Modal";
 import { NavLink } from "react-router-dom";
 import "./Characters_Content.scss";
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-}));
 
 const Characters_Content = ({ data }) => {
-  const classes = useStyles();
-
   const [isOpenModal, setOpenModal] = React.useState(false);
   const [modalPage, setModalPage] = React.useState(null);
 

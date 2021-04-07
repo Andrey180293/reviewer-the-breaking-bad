@@ -5,23 +5,13 @@ import Grid from "@material-ui/core/Grid";
 import Episodes_Card from "./Episodes_Card";
 import Episodes_List from "./Episodes_List";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-  },
-}));
-
 const Episodes_Content = ({ data, seasonsCount }) => {
-  const classes = useStyles();
   console.log(seasonsCount(data));
   const [openList, setOpenList] = useState(false);
   const [listNumber, setListNumber] = useState(null);
   const [series, setSeries] = useState(null);
 
-  const setTable = (n, str) => {
+  const setEpisodeListContent = (n, str) => {
     setOpenList(true);
     setListNumber(n);
     setSeries(str);
@@ -50,7 +40,7 @@ const Episodes_Content = ({ data, seasonsCount }) => {
                   xs={12}
                   sm={6}
                   lg={4}
-                  onClick={() => setTable(el, "Breaking Bad")}
+                  onClick={() => setEpisodeListContent(el, "Breaking Bad")}
                 >
                   <Episodes_Card el={el} color="#f44336" />
                 </Grid>
@@ -66,7 +56,7 @@ const Episodes_Content = ({ data, seasonsCount }) => {
                   xs={12}
                   sm={6}
                   lg={4}
-                  onClick={() => setTable(el, "Better Call Saul")}
+                  onClick={() => setEpisodeListContent(el, "Better Call Saul")}
                 >
                   <Episodes_Card el={el} color="#4caf50" />
                 </Grid>
@@ -76,7 +66,6 @@ const Episodes_Content = ({ data, seasonsCount }) => {
         </Grid>
       ) : (
         <Episodes_List
-          data={data}
           listNumber={listNumber}
           seasonsCount={seasonsCount}
           data={data}

@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { NavLink } from "react-router-dom";
@@ -29,16 +28,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = ({ open, setOpen, setLoad }) => {
+const Header = ({ isOpenBurger, setOpenBurger }) => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          {!open ? (
+          {!isOpenBurger ? (
             <IconButton
-              onClick={() => setOpen(!open)}
+              onClick={() => setOpenBurger(!isOpenBurger)}
               edge="start"
               className={classes.menuButton}
               color="inherit"
@@ -51,7 +50,7 @@ const Header = ({ open, setOpen, setLoad }) => {
             <IconButton
               className={classes.menuButton}
               edge="start"
-              onClick={() => setOpen(!open)}
+              onClick={() => setOpenBurger(!isOpenBurger)}
             >
               {" "}
               <CloseIcon />
@@ -63,7 +62,6 @@ const Header = ({ open, setOpen, setLoad }) => {
               Film viewer
             </NavLink>
           </Typography>
-          <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
     </div>
