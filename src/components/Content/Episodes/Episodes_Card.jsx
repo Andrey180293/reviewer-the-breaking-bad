@@ -24,20 +24,21 @@ const useStyles = makeStyles({
   },
 });
 
-const Episodes_Card = ({ el, color }) => {
+const Episodes_Card = ({ el, color, episode }) => {
   const classes = useStyles();
   return (
     <Card style={{ backgroundColor: color }}>
-      <CardContent>
-        <Typography
-          className={classes.title}
-          color="textSecondary"
-          gutterBottom
-        >
-          Season {el}
-        </Typography>
-      </CardContent>
-      <NavLink to={`/episodes/seasons/${el}`}>
+      <NavLink to={`/episodes/${episode}/seasons/${el}`}>
+        <CardContent>
+          <Typography
+            className={classes.title}
+            color="textSecondary"
+            gutterBottom
+          >
+            Season {el}
+          </Typography>
+        </CardContent>
+
         <CardActions>
           <Button size="small">Learn More</Button>
         </CardActions>

@@ -40,7 +40,11 @@ const Episodes_Content = ({ data, seasonsCount }) => {
                   lg={4}
                   onClick={() => setEpisodeListContent(el, "Breaking Bad")}
                 >
-                  <Episodes_Card el={el} color="#f44336" />
+                  <Episodes_Card
+                    el={el}
+                    color="#f44336"
+                    episode={"Breaking Bad"}
+                  />
                 </Grid>
               );
             })}
@@ -57,7 +61,11 @@ const Episodes_Content = ({ data, seasonsCount }) => {
                   lg={4}
                   onClick={() => setEpisodeListContent(el, "Better Call Saul")}
                 >
-                  <Episodes_Card el={el} color="#4caf50" />
+                  <Episodes_Card
+                    el={el}
+                    color="#4caf50"
+                    episode={"Better Call Saul"}
+                  />
                 </Grid>
               );
             })}

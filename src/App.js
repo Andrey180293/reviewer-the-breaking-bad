@@ -2,8 +2,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Header from "./components/Header/Header";
-import Sidebar_Container from "./components/containers/Sidebar_Container";
-import Content_Container from "./components/containers/Content_Container";
+import Sidebar_Container from "./containers/Sidebar_Container";
+import Content_Container from "./containers/Content_Container";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,

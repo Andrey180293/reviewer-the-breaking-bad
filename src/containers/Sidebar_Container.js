@@ -1,9 +1,9 @@
 import React from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
-import { getData, setCurrentPage } from "../../store/action-creators/data";
+import { getData, setCurrentPage } from "../store/action-creators/data";
 
-import Sidebar from "../Sidebar/Sidebar";
+import Sidebar from "../components/Sidebar/Sidebar";
 
 const Sidebar_Container = ({ getData, setCurrentPage, perPage }) => {
   const sidebarHandleChange = (el) => {

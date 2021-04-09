@@ -1,0 +1,35 @@
+.paginator {
+  display: flex;
+  align-items: center;
+}
+
+.paginator-number {
+  font-weight: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 1px solid rgb(190, 190, 190);
+}
+
+.paginator-number:hover {
+  cursor: pointer;
+  background-color: rgb(218, 211, 211);
+  opacity: 0.8;
+}
+
+.triangle {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.left {
+  transform: rotate(-135deg);
+}
+
+.right {
+  transform: rotate(45deg);
+}

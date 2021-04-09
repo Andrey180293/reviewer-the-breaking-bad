@@ -1,5 +1,4 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import "./Episodess_Content.scss";
 import { Grid } from "@material-ui/core";
 import Episodes_List_Characters_Card from "./Episodes_List_Characters_Card";

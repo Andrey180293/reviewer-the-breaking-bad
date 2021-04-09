@@ -1,14 +1,16 @@
 import React, { useEffect } from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
-import { getData, setCurrentPage } from "../../store/action-creators/data";
-import Characters_Content from "../Content/Characters_Content/Characters_Content";
+import { getData, setCurrentPage } from "../store/action-creators/data";
 import { Route } from "react-router";
-import Episodes_Content from "../Content/Episodes/Episodes_Content";
-import Quotes_Content from "../Content/Quotes/Quotes_Content";
-import Start_Page from "../Content/Start_Page";
+import Characters_Content from "../components/Content/Characters_Content/Characters_Content";
+import Episodes_Content from "../components/Content/Episodes/Episodes_Content";
+import Quotes_Content from "../components/Content/Quotes/Quotes_Content";
+import Start_Page from "../components/Content/Start_Page";
+import Deathes_Content from "../components/Content/Deathes/Deathes_Content";
+
 import LinearProgress from "@material-ui/core/LinearProgress";
-import Deathes_Content from "../Content/Deathes/Deathes_Content";
+//import Paginator from "@paginator-component-library";
 
 const Content_Container = ({
   data,

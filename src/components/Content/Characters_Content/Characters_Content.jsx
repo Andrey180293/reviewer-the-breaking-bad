@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React from "react";
 import Characters_Card from "./Characters_Card";
 import Grid from "@material-ui/core/Grid";
 import Characters_Modal from "./Characters_Modal";
 import { NavLink } from "react-router-dom";
 import "./Characters_Content.scss";
-import Paginator from "../../../common/Paginator";
+import Paginator from "../../../common/Paginator/Paginator";
 
 const Characters_Content = ({
   data,
@@ -58,9 +57,10 @@ const Characters_Content = ({
               );
             })}
           <Paginator
-            pagesCount={pagesCount}
+            counts={pagesCount}
             setCurrentPage={setCurrentPage}
-            currentPage={currentPage}
+            color={"#2123f3"}
+            activePage={currentPage}
           />
         </>
       ) : (
