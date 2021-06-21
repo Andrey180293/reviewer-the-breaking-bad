@@ -10,7 +10,6 @@ import Start_Page from "../components/Content/Start_Page";
 import Deathes_Content from "../components/Content/Deathes/Deathes_Content";
 
 import LinearProgress from "@material-ui/core/LinearProgress";
-//import Paginator from "@paginator-component-library";
 
 const Content_Container = ({
   data,
