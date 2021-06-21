@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/reviewer-the-breaking-bad/static/css/main.f7e3d6c1.chunk.css",
+    "main.js": "/reviewer-the-breaking-bad/static/js/main.2c1a869c.chunk.js",
+    "main.js.map": "/reviewer-the-breaking-bad/static/js/main.2c1a869c.chunk.js.map",
+    "runtime-main.js": "/reviewer-the-breaking-bad/static/js/runtime-main.0de63cb9.js",
+    "runtime-main.js.map": "/reviewer-the-breaking-bad/static/js/runtime-main.0de63cb9.js.map",
+    "static/js/2.b34f2c39.chunk.js": "/reviewer-the-breaking-bad/static/js/2.b34f2c39.chunk.js",
+    "static/js/2.b34f2c39.chunk.js.map": "/reviewer-the-breaking-bad/static/js/2.b34f2c39.chunk.js.map",
+    "static/js/3.b6e54fc2.chunk.js": "/reviewer-the-breaking-bad/static/js/3.b6e54fc2.chunk.js",
+    "static/js/3.b6e54fc2.chunk.js.map": "/reviewer-the-breaking-bad/static/js/3.b6e54fc2.chunk.js.map",
+    "index.html": "/reviewer-the-breaking-bad/index.html",
+    "static/css/main.f7e3d6c1.chunk.css.map": "/reviewer-the-breaking-bad/static/css/main.f7e3d6c1.chunk.css.map",
+    "static/js/2.b34f2c39.chunk.js.LICENSE.txt": "/reviewer-the-breaking-bad/static/js/2.b34f2c39.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0de63cb9.js",
+    "static/js/2.b34f2c39.chunk.js",
+    "static/css/main.f7e3d6c1.chunk.css",
+    "static/js/main.2c1a869c.chunk.js"
+  ]
+}
